@@ -18,7 +18,8 @@
 
     <section class="layout">
       <form id="sampleForm" class="editor">
-        <h2>样本录入</h2>
+        <h2 id="formTitle">样本录入</h2>
+        <p id="formHint" class="form-hint">标尺缺失或曝光不在 40-80 区间时，照片只进待复核，不能对比或导出。</p>
         <label>显微照片<input id="photoInput" type="file" accept="image/*"></label>
         <label>样本编号<input name="code" required placeholder="BX-17-03"></label>
         <label>采样地点<input name="location" placeholder="剖面东侧第二层"></label>
@@ -32,10 +33,20 @@
             </select>
           </label>
         </div>
+        <fieldset id="metricFields" class="metric-fields">
+          <legend>标尺与曝光（入库登记）</legend>
+          <div class="pair">
+            <label>标尺长度(µm)<input name="scaleLength" type="number" min="0" step="0.1" placeholder="如 100"></label>
+            <label>视野宽度(µm)<input name="fieldWidth" type="number" min="0" step="0.1" placeholder="如 450"></label>
+          </div>
+          <label>曝光值<input name="exposure" type="number" step="0.1" placeholder="40-80 为合格"></label>
+          <label>录入人<input name="operator" required placeholder="录入人姓名"></label>
+        </fieldset>
         <label>主要矿物<input name="minerals" placeholder="石英、斜长石、黑云母"></label>
         <label>颗粒结构<input name="texture" placeholder="半自形粒状、碎裂结构"></label>
         <label>老师批注<textarea name="comment" rows="4" placeholder="记录鉴定依据或疑点"></textarea></label>
-        <button type="submit">保存样本</button>
+        <button id="submitBtn" type="submit">保存样本</button>
+        <button id="cancelEditBtn" type="button" class="secondary-btn" hidden>取消编辑</button>
       </form>
 
       <section class="board">
@@ -47,6 +58,11 @@
             <option>正交偏光</option>
             <option>反射光</option>
           </select>
+          <select id="statusFilter">
+            <option value="">全部状态</option>
+            <option value="qualified">合格</option>
+            <option value="pending">待复核</option>
+          </select>
         </div>
         <div id="sampleGrid" class="sample-grid"></div>
       </section>
@@ -57,6 +73,26 @@
       </aside>
     </section>
   </main>
+
+  <dialog id="reviewDialog" class="review-dialog">
+    <form id="reviewForm">
+      <h2 id="reviewTitle">复核样本</h2>
+      <p class="review-reasons"><span>未过项：</span><span id="reviewReasons"></span></p>
+      <p class="review-operator">录入人：<span id="reviewOperator"></span>（复核人须为不同的人）</p>
+      <label>标尺修正值(µm)<input id="reviewScale" name="scaleLength" type="number" min="0" step="0.1" required></label>
+      <label>视野宽度修正值(µm)<input id="reviewFieldWidth" name="fieldWidth" type="number" min="0" step="0.1" required></label>
+      <label>曝光修正值<input id="reviewExposure" name="exposure" type="number" step="0.1" required></label>
+      <label>复核人<input id="reviewReviewer" name="reviewer" required placeholder="复核人姓名"></label>
+      <p id="reviewError" class="review-error" role="alert"></p>
+      <div class="review-actions">
+        <button id="reviewCancelBtn" type="button" class="secondary-btn">取消</button>
+        <button type="submit">通过复核</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="./storage.js"></script>
+  <script src="./policy.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

@@ -136,7 +136,7 @@ textarea {
 
 .filters {
   display: grid;
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: 1fr 150px 120px;
   gap: 10px;
   margin-bottom: 12px;
 }
@@ -221,6 +221,168 @@ textarea {
   object-fit: cover;
   border-radius: 6px;
   background: #dfe9e4;
+}
+
+.form-hint {
+  margin: 8px 0 0;
+  color: var(--amber);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.metric-fields {
+  margin: 12px 0 0;
+  padding: 10px 12px 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+}
+
+.metric-fields legend {
+  padding: 0 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metric-fields label:first-of-type {
+  margin-top: 0;
+}
+
+.metric-fields:disabled {
+  opacity: 0.55;
+}
+
+.secondary-btn {
+  background: #e8f0eb;
+  color: var(--ink);
+  margin-top: 8px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card-head h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.badge {
+  flex: none;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-ok {
+  background: #e0efe7;
+  color: var(--accent);
+}
+
+.badge-pending {
+  background: #f7e9d0;
+  color: var(--amber);
+}
+
+.sample-card.is-pending {
+  border-color: #e0c48d;
+}
+
+.admission-reason {
+  color: var(--amber) !important;
+  font-weight: 600;
+}
+
+.review-line {
+  color: var(--accent) !important;
+  font-size: 12px !important;
+}
+
+.action-spacer {
+  flex: 1;
+}
+
+.card-actions .review-btn {
+  min-height: 32px;
+  background: #f3e3c2;
+  color: #6e4d12;
+}
+
+.card-actions .edit-btn {
+  min-height: 32px;
+  background: #e8f0eb;
+  color: var(--ink);
+}
+
+.card-actions .delete-btn {
+  min-height: 32px;
+  background: #f3e1de;
+  color: #8a3a2c;
+}
+
+.empty-tip {
+  grid-column: 1 / -1;
+  margin: 24px 0;
+  color: var(--muted);
+}
+
+.review-dialog {
+  width: min(420px, calc(100vw - 32px));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0;
+}
+
+.review-dialog::backdrop {
+  background: rgb(23 32 29 / 45%);
+}
+
+.review-dialog form {
+  display: grid;
+  gap: 4px;
+  padding: 20px;
+}
+
+.review-dialog h2 {
+  margin-bottom: 8px;
+}
+
+.review-reasons {
+  margin: 0 0 4px;
+  color: var(--amber);
+  font-size: 13px;
+}
+
+.review-operator {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.review-error {
+  min-height: 18px;
+  margin: 6px 0 0;
+  color: #8a3a2c;
+  font-size: 13px;
+}
+
+.review-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.review-actions button {
+  min-height: 38px;
+}
+
+.review-actions .secondary-btn {
+  margin-top: 0;
 }
 
 @media (max-width: 1120px) {
