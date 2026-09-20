@@ -136,7 +136,7 @@ textarea {
 
 .filters {
   display: grid;
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: 1fr 150px 130px;
   gap: 10px;
   margin-bottom: 12px;
 }
@@ -152,6 +152,105 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: white;
+}
+
+.sample-card.is-pending {
+  border-color: var(--amber);
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #dfe9e4;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card-head h3 {
+  margin: 0;
+}
+
+.badge {
+  flex: none;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge.approved {
+  background: #e2efe7;
+  color: var(--accent);
+}
+
+.badge.pending {
+  background: #f7e8c8;
+  color: var(--amber);
+}
+
+.issues {
+  color: var(--amber) !important;
+  font-weight: 600;
+}
+
+.review-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.review-form label {
+  margin-top: 0;
+}
+
+.review-form button {
+  min-height: 34px;
+}
+
+.review-title {
+  margin: 0;
+  color: var(--ink) !important;
+  font-weight: 700;
+}
+
+.review-errors {
+  margin: 0;
+  color: #b23b3b !important;
+}
+
+.mast-actions {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+}
+
+.export-note {
+  margin: 0;
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-hint {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+button.ghost {
+  width: 100%;
+  margin-top: 8px;
+  background: #e8f0eb;
+  color: var(--ink);
 }
 
 .sample-card img {
